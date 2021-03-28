@@ -1,0 +1,16 @@
+Data = record {
+    id: i64 ;
+    value: string ;
+}
+
+Storage = interface +c {
+
+    const get(id:i64): optional<Data>;
+
+    add(data: Data): bool ;
+
+    const size () : i64 ;
+
+    static create() : Storage;
+}
+
