@@ -1,0 +1,9 @@
+module Storage {
+  umbrella header "Storage.h"
+  link "Storage"
+  export *
+  module * { export * }
+}
+
+
+

@@ -6,17 +6,12 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+include(CTest)
+enable_testing()
 
 find_package(JNI REQUIRED)
-  if (JNI_FOUND)
-    message (STATUS "JNI_INCLUDE_DIRS=${JNI_INCLUDE_DIRS}")
-    message (STATUS "JNI_LIBRARIES=${JNI_LIBRARIES}")
-  endif()
 
-#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 include(cmake/djinni_process_idl.cmake)
 
@@ -29,24 +24,23 @@ djinni_process_idl(
 )
 
 
-
 include(${CMAKE_CURRENT_BINARY_DIR}/storage.djinni.cmake)
 
-find_package(JNI)
+
 find_package(djinni-support-lib)
 
 add_library(storage
+    # all genearted headers
     ${DJINI_STORAGE_CPP_SOURCE}
     ${DJINI_STORAGE_JNI_SOURCE}
     ${DJINI_STORAGE_OBJC_SOURCE}
     ${DJINI_STORAGE_OBJCPP_SOURCE}
-    src/storage.cpp
-
     # until source groups added
     ${DJINI_STORAGE_OBJC_HEADER}
     ${DJINI_STORAGE_JNI_HEADER}
     ${DJINI_STORAGE_CPP_HEADER}
-
+    # our implementation
+    src/storage.cpp
 )
 
 target_include_directories(storage PUBLIC generated/include)
