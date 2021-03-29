@@ -12,8 +12,9 @@ Install conan, and (for now) add this remote:
 
 Clone this directory and change into it
 
-    git clone ...
-    cd hello-djinni
+    git clone https://gitlab.com/a4z/xlcpp-hello.git
+
+    cd xlcpp-hello
 
 Then run the build:
 
