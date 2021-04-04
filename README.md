@@ -5,9 +5,9 @@ It does nothing interesting or useful, just demonstrate a possible project setup
 
 Early state, just MacOS support, since it's Objective-C / Swift focused.
 
-Install conan, and (for now) add this remote:
+## Getting started
 
-    conan remote add xlcpp https://a4z.jfrog.io/artifactory/api/conan/xlcpp-conan-dev-local
+Install conan, if you do not have it already
 
 Clone this directory and change into it
 
@@ -17,7 +17,7 @@ Clone this directory and change into it
 
 Install dependencies:
 
-    conan install -if build conanfile.txt -r xlcpp
+    conan install -if build conanfile.txt
 
 If this fails due to missing packages for your OSX configuration, please do what the command line help text suggests
 
