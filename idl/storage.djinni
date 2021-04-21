@@ -9,6 +9,8 @@ Storage = interface +c {
 
     add(data: Data): bool ;
 
+    remove(id:i64): bool ;
+
     const size () : i64 ;
 
     static create() : Storage;
