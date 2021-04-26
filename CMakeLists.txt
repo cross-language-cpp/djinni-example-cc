@@ -85,7 +85,5 @@ target_compile_options(storage PRIVATE -fobjc-arc)
 target_link_libraries(storage PUBLIC djinni-support-lib::djinni-support-lib  "-framework Foundation")
 
 
-
-
 add_subdirectory(tests)
 
