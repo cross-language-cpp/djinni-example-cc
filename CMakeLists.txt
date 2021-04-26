@@ -85,5 +85,20 @@ target_compile_options(storage PRIVATE -fobjc-arc)
 target_link_libraries(storage PUBLIC djinni-support-lib::djinni-support-lib  "-framework Foundation")
 
 
+
+find_package(Java REQUIRED)
+include(UseJava)
+
+add_jar(jstoreage
+  SOURCES
+    ${DJINI_STORAGE_JAVA_SOURCE}
+  OUTPUT_DIR
+    ${CMAKE_BINARY_DIR}
+)
+get_target_property(JSTORE_JAR_FILE jstoreage JAR_FILE)
+get_target_property(JSTORE_CLASSDIR jstoreage CLASSDIR)
+
+
+
 add_subdirectory(tests)
 
