@@ -16,7 +16,7 @@ jobs:
       run: conan install -if build conanfile.txt
     - name: Configure
       run: cmake -S . -B build -G Ninja
-    -name: Debug gh-action
+    - name: Debug gh-action
       run: find generated -type f
     - name: Build
       run: cmake --build build
