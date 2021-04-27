@@ -47,6 +47,7 @@ add_library(storage
     ${DJINI_STORAGE_CPP_HEADER}
     # our implementation
     src/storage.cpp
+    src/djinni_main.cpp # if we link against a static support lib
 )
 
 set_target_properties(storage PROPERTIES
@@ -93,7 +94,7 @@ add_jar(jstoreage
   SOURCES
     ${DJINI_STORAGE_JAVA_SOURCE}
   OUTPUT_DIR
-    ${CMAKE_BINARY_DIR}
+    ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
 )
 get_target_property(JSTORE_JAR_FILE jstoreage JAR_FILE)
 get_target_property(JSTORE_CLASSDIR jstoreage CLASSDIR)

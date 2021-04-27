@@ -8,7 +8,7 @@ add_jar(${JARNAME}
     dev/xlcpp/djinni/NativeLibLoader.java
     StorageJavaTest.java
   OUTPUT_DIR
-    ${CMAKE_BINARY_DIR}
+    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
 
   INCLUDE_JARS
     jstoreage
@@ -31,7 +31,7 @@ message(STATUS "Class compiled to ${_classDir}")
 message(STATUS "RUN: ${Java_JAVA_EXECUTABLE} -cp ${_JAVA_TESTS_CLASSPATH} ${JARNAME}")
 
 add_test(NAME storagejava_test
-    COMMAND ${Java_JAVA_EXECUTABLE} -cp ${_JAVA_TESTS_CLASSPATH} ${JARNAME} $<TARGET_FILE:storage>
+    COMMAND ${Java_JAVA_EXECUTABLE} -ea -cp ${_JAVA_TESTS_CLASSPATH} ${JARNAME} $<TARGET_FILE:storage>
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 
