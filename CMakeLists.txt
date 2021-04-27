@@ -99,6 +99,8 @@ add_jar(jstoreage
 get_target_property(JSTORE_JAR_FILE jstoreage JAR_FILE)
 get_target_property(JSTORE_CLASSDIR jstoreage CLASSDIR)
 
+message(STATUS "JSTORE_JAR_FILE file ${JSTORE_JAR_FILE}")
+message(STATUS "JSTORE_CLASSDIR compiled to ${JSTORE_CLASSDIR}")
 
 
 add_subdirectory(tests)
