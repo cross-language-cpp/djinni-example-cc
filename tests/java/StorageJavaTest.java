@@ -29,8 +29,8 @@ public class StorageJavaTest {
             // TODO check some locations ...
         }
 
-        var store = Storage.create();
-        var d = new Data(1, "Foo") ;
+        Storage store = Storage.create();
+        Data d = new Data(1, "Foo") ;
         assert store.add(d);
         assert store.size() == 1 ;
         assert !store.add(d);
