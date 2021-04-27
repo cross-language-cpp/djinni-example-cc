@@ -12,6 +12,8 @@ jobs:
         python-version: 3.x
     - name: Install conan
       run: pip install conan
+    - name: Install dependencies via conan
+      run: conan install -if build conanfile.txt
     - name: Configure
       run: cmake -S . -B build -G Ninja
     - name: Build
