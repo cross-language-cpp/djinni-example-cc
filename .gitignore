@@ -3,3 +3,4 @@ generated
 .vscode
 .DS_Store
 
+zbuild.sh

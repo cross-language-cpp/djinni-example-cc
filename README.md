@@ -1,13 +1,13 @@
 # This is a simple hello world
 
-This is just some example how to use cmake, C++, Objective-C and Swift together with djinni. (Java up to come)
+This is just some example how to use cmake, C++, Objective-C, Swift and Java together with djinni.
 It does nothing interesting or useful, just demonstrate a possible project setup.
 
-Early state, just MacOS support, since it's Objective-C / Swift focused.
+Early state, just MacOS support, since it's more Objective-C / Swift focused.
 
 ## Getting started
 
-Install conan, if you do not have it already
+[Install conan](https://docs.conan.io/en/latest/installation.html), if you do not have it already
 
 Clone this directory and change into it
 
@@ -25,6 +25,9 @@ Build the project
 
     cmake -S . -B build -G Ninja
     cmake --build build
+
+Run the test
+
     cmake --build build --target test
 
 
@@ -40,5 +43,5 @@ The file generation happens during cmake configure time. If you change the djinn
 A file is generated into the build folder, setting some variable names, and this file gets included.
 The variable names contain the source files, they re added to the library target.
 
-For the rest, it's best to look at the source, it's tried to be kept as simple as possible.
+For the rest, it's best to look at the source and the cmake files, it's tried to be kept as simple as possible.
 
