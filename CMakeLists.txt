@@ -47,7 +47,6 @@ add_library(storage
     ${DJINI_STORAGE_CPP_HEADER}
     # our implementation
     src/storage.cpp
-    src/djinni_main.cpp # if we link against a static support lib
 )
 
 set_target_properties(storage PROPERTIES
@@ -75,9 +74,6 @@ set_target_properties(storage PROPERTIES
 
 #    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY ${APPLE_ID_DEVELOPMENT_TEAM}
 )
-
-message("---------------------------------")
-message("${objec_header_generated}")
 
 
 target_include_directories(storage PUBLIC generated/include)
