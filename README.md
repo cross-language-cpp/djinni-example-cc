@@ -17,9 +17,10 @@ Clone this directory and change into it
 
 Install dependencies:
 
-    conan install -if build conanfile.txt
+    conan install -if build conanfile.txt --build missing
 
-If this fails due to missing packages for your OSX configuration, please do what the command line help text suggests
+This will download the djinni generator and the support-lib from the conan center index.
+The support-lib needs to be build, because this example activates multiple language bindings at once.
 
 Build the project
 
