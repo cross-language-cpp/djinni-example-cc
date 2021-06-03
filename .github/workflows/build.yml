@@ -13,7 +13,7 @@ jobs:
     - name: Install conan
       run: pip install conan
     - name: Install dependencies via conan
-      run: conan install -if build conanfile.txt
+      run: conan install -if build conanfile.txt --build=djinni-support-lib
     - name: Configure
       run: cmake -S . -B build -G Ninja
     # - name: Debug gh-action
