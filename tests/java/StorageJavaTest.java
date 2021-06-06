@@ -1,9 +1,6 @@
 
 import java.nio.file.Path;
 
-import dev.xlcpp.djinni.NativeLibLoader;
-
-
 import dev.xlcpp.djinni.hello.Storage;
 import dev.xlcpp.djinni.hello.Data;
 

@@ -1,11 +1,16 @@
 [requires]
-djinni-support-lib/0.0.1
+djinni-support-lib/1.0.0
 doctest/2.4.4
 
+[options]
+djinni-support-lib:with_jni=True
+djinni-support-lib:with_objc=True
+djinni-support-lib:with_python=True
 
 [build_requires]
-djinni-generator/0.3.2
+djinni-generator/1.0.0
 
 [generators]
 cmake_find_package
 cmake_paths
+
