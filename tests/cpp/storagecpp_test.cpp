@@ -1,11 +1,33 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 
+#include "cpplib/djinni/cpp/Action.hpp"
 #include "cpplib/djinni/cpp/Data.hpp"
+#include "cpplib/djinni/cpp/Logger.hpp"
 #include "cpplib/djinni/cpp/Storage.hpp"
 
+namespace cpplib
+{
+  class LogStub : public djinni::Logger {
+
+    public:
+    LogStub() = default;
+
+    //bool write([[maybe_unused]] djinni::Action action, [[maybe_unused]] int64_t id) {
+      bool write([[maybe_unused]] int64_t action, [[maybe_unused]] int64_t id) {
+      // TODO , add something that might make sense in logging context
+      return true ;
+    }
+
+  };
+} // namespace cpplib
+
+
+
+
+
 SCENARIO("Using djinni storage from cpp") {
-  auto store = cpplib::djinni::Storage::create();
+  auto store = cpplib::djinni::Storage::create(std::make_shared<cpplib::LogStub>());
   REQUIRE(store != nullptr);
 
   GIVEN("an empty storage instance and a Data element") {

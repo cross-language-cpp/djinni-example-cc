@@ -1,6 +1,8 @@
 import XCTest
 import Storage
 
+// TODO , adopt to logger, once teh XCTEst framework works again
+
 class StorageTests: XCTestCase {
 
     let s = CppStorage.create()

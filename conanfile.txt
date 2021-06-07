@@ -7,8 +7,8 @@ djinni-support-lib:with_jni=True
 djinni-support-lib:with_objc=True
 djinni-support-lib:with_python=True
 
-[build_requires]
-djinni-generator/1.0.0
+# [build_requires]
+# djinni-generator/1.0.0
 
 [generators]
 cmake_find_package

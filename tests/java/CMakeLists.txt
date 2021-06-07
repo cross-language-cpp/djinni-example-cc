@@ -5,6 +5,7 @@ include(UseJava)
 set(JARNAME StorageJavaTest)
 add_jar(${JARNAME}
   SOURCES
+    LogStub,java
     StorageJavaTest.java
   OUTPUT_DIR
     ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}

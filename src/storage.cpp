@@ -1,7 +1,9 @@
 
 #include <iostream>
 
+#include "cpplib/djinni/cpp/Action.hpp"
 #include "cpplib/djinni/cpp/Data.hpp"
+#include "cpplib/djinni/cpp/Logger.hpp"
 #include "cpplib/djinni/cpp/Storage.hpp"
 
 #include <cassert>
@@ -17,7 +19,12 @@ class Storage : public djinni::Storage {
   data_set store{
       [](const djinni::Data& a, const djinni::Data& b) { return a.id < b.id; }};
 
+
+  std::shared_ptr<djinni::Logger> logger;
+
  public:
+  Storage(std::shared_ptr<djinni::Logger> l):logger{l}{}
+
   ~Storage() = default;
 
   std::optional<djinni::Data> get(int64_t id) const override {
@@ -30,10 +37,13 @@ class Storage : public djinni::Storage {
 
   bool add(const djinni::Data& data) override {
     auto insert_info = store.insert(data);
+    if(insert_info.second)
+      logger->write((int) djinni::Action::INSERT, insert_info.first->id);
     return insert_info.second;
   }
 
   bool remove(int64_t id) override {
+      logger->write((int) djinni::Action::REMOVE, id);
       return store.erase(djinni::Data{id,""}) == 1;
   }
 
@@ -47,7 +57,8 @@ class Storage : public djinni::Storage {
 }  // namespace cpplib
 
 namespace cpplib::djinni {
-std::shared_ptr<Storage> Storage::create() {
-  return std::make_shared<cpplib::Storage>();
+
+std::shared_ptr<Storage> Storage::create(const std::shared_ptr<Logger> & logger) {
+  return std::make_shared<cpplib::Storage>(logger);
 }
 }  // namespace cpplib::djinni

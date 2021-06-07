@@ -53,7 +53,7 @@ macro(djinni_process_idl)
 
     set(djinni_args
         --idl ${_idldef_DJINNI_IDL_FILE}
-        --objc-type-prefix Cpp
+     #   --objc-type-prefix Cpp
         --cpp-out ${arg_cpp_out}
         --cpp-header-out ${arg_cpp_header_out}
         --cpp-include-prefix ${namespace_path}/cpp/

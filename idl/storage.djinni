@@ -3,6 +3,17 @@ Data = record {
     value: string ;
 }
 
+Action = enum {
+    Insert;
+    Remove;
+    Ignore;
+}
+
+Logger = interface +j +o  {
+    write(action: i64, id:i64): bool;
+}
+
+
 Storage = interface +c {
 
     const get(id:i64): optional<Data>;
@@ -13,6 +24,8 @@ Storage = interface +c {
 
     const size () : i64 ;
 
-    static create() : Storage;
+    static create(logger: Logger) : Storage;
 }
+
+
 

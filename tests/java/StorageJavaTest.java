@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import dev.xlcpp.djinni.hello.Storage;
 import dev.xlcpp.djinni.hello.Data;
 
-
+//import .LogStub ;
 
 
 //yes, not a beautiful Java JUnit test,
@@ -26,7 +26,8 @@ public class StorageJavaTest {
             // TODO check some locations ...
         }
 
-        Storage store = Storage.create();
+        LogStub ls = new LogStub();
+        Storage store = Storage.create(ls);
         Data d = new Data(1, "Foo") ;
         assert store.add(d);
         assert store.size() == 1 ;

@@ -12,8 +12,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import <cpplib/djinni/objc/CppData.h>
-#import <cpplib/djinni/objc/CppStorage.h>
+#import <cpplib/djinni/objc/Action.h>
+#import <cpplib/djinni/objc/Data.h>
+#import <cpplib/djinni/objc/Logger.h>
+#import <cpplib/djinni/objc/Storage.h>
 
 
 #endif /* storage_bridge_h */
